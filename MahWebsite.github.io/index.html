@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schoology</title>
+  <link rel="icon" href="schoology.ico" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px #3b82f6;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #3b82f6; }
+      to { text-shadow: 0 0 30px #60a5fa; }
+    }
+
+    p {
+      max-width: 700px;
+      font-size: 1rem;
+      opacity: 0.9;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 0 15px rgba(59,130,246,0.4);
+    }
+
+    button:hover {
+      background: #60a5fa;
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(96,165,250,0.7);
+    }
+
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+      width: 90%;
+      max-width: 800px;
+    }
+
+    a {
+      text-decoration: none;
+      background: rgba(255,255,255,0.1);
+      padding: 14px;
+      border-radius: 10px;
+      transition: 0.3s ease;
+      color: #93c5fd;
+      font-weight: 600;
+      display: block;
+    }
+
+    a:hover {
+      background: rgba(59,130,246,0.3);
+      color: white;
+      transform: translateY(-4px);
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    input {
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      margin-top: 0.8rem;
+      width: 250px;
+    }
+
+    img {
+      margin-top: 2rem;
+      border-radius: 12px;
+      max-width: 250px;
+      opacity: 0.9;
+      transition: 0.3s ease;
+    }
+
+    img:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>EPIC WEBSITE</h1>
+
+  <p>Welcome! Use the button below to open a cloaked version of YouTube in a new about:blank tab.<br>
+  This site features various tools, games, and links — all hidden under a clean design.</p>
+
+  <button onclick="openCloak()">Open Cloaked YouTube</button>
+
+  <div class="links">
+    <a href="https://kitdakat.xyz/learning">Games</a>
+    <a href="https://kitdakat.xyz/gnmath/gnmath">GN Math (hosted here)</a>
+    <a href="https://schoology.com.de">Truffled Proxy</a>
+    <a href="https://kitdakat.xyz/helios/heliosproxy">Helios Proxy</a>
+    <a href="https://chatgpt.com">ChatGPT</a>
+    <a href="https://coolmathgames.com">CoolMathGames</a>
+  </div>
+
+  <div style="margin-top:2rem;">
+    <input type="text" id="customlinkbox" placeholder="Enter custom link (e.g. https://example.com)">
+    <a id="customlink" href="#" target="_blank">Custom Link</a>
+  </div>
+
+  <img src="hunterphonk.png" alt="hunter phonk">
+
+  <footer>Made with ❤️ by your dev team</footer>
+
+  <script>
+    // Custom link handler
+    const customlinkbox = document.getElementById('customlinkbox');
+    const customlink = document.getElementById('customlink');
+
+    customlinkbox.addEventListener('input', () => {
+      customlink.href = customlinkbox.value;
+      customlink.textContent = customlinkbox.value || "Custom Link";
+    });
+
+    // Cloaker (opens about:blank window)
+    function openCloak() {
+      const win = window.open();
+      win.document.write(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>Schoology</title>
+          <link rel="icon" href="schoology.ico" />
+          <style>
+            html, body {
+              width: 100%;
+              height: 100%;
+              margin: 0;
+              background: linear-gradient(135deg, #0f172a, #1e293b);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              overflow: hidden;
+            }
+            .loader {
+              position: absolute;
+              color: #38bdf8;
+              font-family: "Poppins", sans-serif;
+              font-size: 1.2rem;
+              animation: fade 1.5s infinite ease-in-out;
+            }
+            iframe {
+              width: 100%;
+              height: 100%;
+              border: none;
+              z-index: 10;
+            }
+            @keyframes fade {
+              0%, 100% { opacity: 0.3; }
+              50% { opacity: 1; }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="loader">Launching YouTube...</div>
+          <iframe id="cloak" src="https://www.youtube.com"></iframe>
+          <script>
+            const loader = document.querySelector('.loader');
+            const frame = document.getElementById('cloak');
+            frame.addEventListener('load', () => {
+              loader.style.display = 'none';
+              document.title = 'Schoology';
+            });
+          <\\/script>
+        </body>
+        </html>
+      `);
+      win.document.close();
+    }
+  </script>
+</body>
+</html>
