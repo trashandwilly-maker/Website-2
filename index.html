@@ -126,18 +126,14 @@
 <body>
   <h1>Poki Website</h1>
 
-  <p>Welcome! Use the button below to open a cloaked version of this website in a new about:blank tab.<br>
-  This site features various tools, games, and links — all hidden under a clean design.</p>
+  <p>Welcome! Use the button below to open Poki in a cloaked window.<br>
+  This site only includes external tools and links cloaked via about:blank.</p>
 
-  <button onclick="openCloak()">Open Cloaked Site</button>
+  <button onclick="openCloak()">Open Poki Cloak</button>
 
   <div class="links">
-    <a href="https://Wackymah.xyz/learning">Games</a>
-    <a href="https://Wackymah.xyz/gnmath/gnmath">GN Math (hosted here)</a>
     <a href="https://schoology.com.de">Truffled Proxy</a>
-    <a href="https://Wackymah.xyz/poki/pokiproxy">Poki Proxy</a>
-    <a href="https://chatgpt.com">ChatGPT</a>
-    <a href="https://coolmathgames.com">CoolMathGames</a>
+    <a href="#" onclick="openPokiCloak()">Poki Proxy</a>
   </div>
 
   <div style="margin-top:2rem;">
@@ -159,7 +155,7 @@
       customlink.textContent = customlinkbox.value || "Custom Link";
     });
 
-    // Cloaker (opens about:blank window with same site)
+    // General cloaker function
     function openCloak() {
       const win = window.open('about:blank', '_blank');
       const html = `
@@ -186,12 +182,16 @@
           </style>
         </head>
         <body>
-          <iframe src="https://Wackymah.xyz/poki/pokiproxy"></iframe>
+          <iframe src="https://poki.com"></iframe>
         </body>
         </html>
       `;
       win.document.write(html);
       win.document.close();
+    }
+
+    function openPokiCloak() {
+      openCloak(); // opens poki.com in cloaked iframe
     }
   </script>
 </body>
