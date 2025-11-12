@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home | Schoology</title>
+  <title>EPIC WEBSITE</title>
   <link rel="icon" href="schoology.ico" />
 
   <style>
@@ -60,6 +60,7 @@
       cursor: pointer;
       transition: 0.3s ease;
       box-shadow: 0 0 15px rgba(59,130,246,0.4);
+      margin: 5px;
     }
 
     button:hover {
@@ -70,28 +71,11 @@
 
     .links {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1rem;
       margin-top: 2rem;
       width: 90%;
-      max-width: 800px;
-    }
-
-    a {
-      text-decoration: none;
-      background: rgba(255,255,255,0.1);
-      padding: 14px;
-      border-radius: 10px;
-      transition: 0.3s ease;
-      color: #93c5fd;
-      font-weight: 600;
-      display: block;
-    }
-
-    a:hover {
-      background: rgba(59,130,246,0.3);
-      color: white;
-      transform: translateY(-4px);
+      max-width: 1000px;
     }
 
     footer {
@@ -108,56 +92,47 @@
       margin-top: 0.8rem;
       width: 250px;
     }
-
-    img {
-      margin-top: 2rem;
-      border-radius: 12px;
-      max-width: 250px;
-      opacity: 0.9;
-      transition: 0.3s ease;
-    }
-
-    img:hover {
-      opacity: 1;
-      transform: scale(1.05);
-    }
   </style>
 </head>
 <body>
-  <h1>Mah Hub</h1>
+  <h1>EPIC WEBSITE</h1>
 
-  <p>Welcome! Use the button below to open a cloaked version of this website in a new about:blank tab.<br>
-  This site features external tools and links — all hidden under a clean design.</p>
+  <p>Welcome! Use the buttons below to open various gaming websites in a cloaked tab (about:blank).</p>
 
-  <button onclick="openCloak()">Open Cloaked Site</button>
-
+  <!-- Gaming buttons section -->
   <div class="links">
-    <a href="https://schoology.com.de">Truffled Proxy</a>
-    <a href="https://coolmathgames.com">CoolMathGames</a>
-    <a href="https://safeshare.tv">Safe Share</a>
+    <button onclick="openCloak('https://coolmathgames.com')">Cool Math Games</button>
+    <button onclick="openCloak('https://poki.com')">Poki</button>
+    <button onclick="openCloak('https://kongregate.com')">Kongregate</button>
+    <button onclick="openCloak('https://armorgames.com')">Armor Games</button>
+    <button onclick="openCloak('https://miniclip.com')">Miniclip</button>
+    <button onclick="openCloak('https://addictinggames.com')">Addicting Games</button>
+    <button onclick="openCloak('https://nitrome.com')">Nitrome</button>
+    <button onclick="openCloak('https://y8.com')">Y8 Games</button>
+    <button onclick="openCloak('https://games.lol')">Games.lol</button>
+    <button onclick="openCloak('https://crazygames.com')">Crazy Games</button>
+    <button onclick="openCloak('https://pokemongame.com')">Pokemon Game</button>
+    <button onclick="openCloak('https://neopets.com')">Neopets</button>
+    <button onclick="openCloak('https://roblox.com')">Roblox</button>
+    <button onclick="openCloak('https://scratch.mit.edu')">Scratch</button>
+    <button onclick="openCloak('https://habbo.com')">Habbo</button>
+    <button onclick="openCloak('https://miniworlds.com')">Mini Worlds</button>
+    <button onclick="openCloak('https://slither.io')">Slither.io</button>
+    <button onclick="openCloak('https://agar.io')">Agar.io</button>
+    <button onclick="openCloak('https://slopegame.com')">Slope</button>
+    <button onclick="openCloak('https://2048game.com')">2048</button>
   </div>
 
+  <!-- Optional custom link input -->
   <div style="margin-top:2rem;">
     <input type="text" id="customlinkbox" placeholder="Enter custom link (e.g. https://example.com)">
-    <a id="customlink" href="#" target="_blank">Custom Link</a>
+    <button onclick="openCustom()">Open Custom Link</button>
   </div>
-
-  <img src="hunterphonk.png" alt="hunter phonk">
 
   <footer>Made with ❤️ by your dev team</footer>
 
   <script>
-    // Custom link handler
-    const customlinkbox = document.getElementById('customlinkbox');
-    const customlink = document.getElementById('customlink');
-
-    customlinkbox.addEventListener('input', () => {
-      customlink.href = customlinkbox.value;
-      customlink.textContent = customlinkbox.value || "Custom Link";
-    });
-
-    // Cloaker (opens about:blank window with same site)
-    function openCloak() {
+    function openCloak(url) {
       const win = window.open('about:blank', '_blank');
       const html = `
         <!DOCTYPE html>
@@ -165,30 +140,24 @@
         <head>
           <meta charset="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>Mah Hub</title>
-          <link rel="icon" href="schoology.ico" />
+          <title>Cloaked Game</title>
           <style>
-            html, body {
-              width: 100%;
-              height: 100%;
-              margin: 0;
-              overflow: hidden;
-              background: #0f172a;
-            }
-            iframe {
-              width: 100%;
-              height: 100%;
-              border: none;
-            }
+            html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+            iframe { width: 100%; height: 100%; border: none; }
           </style>
         </head>
         <body>
-          <iframe src="https://Wackymah.xyz"></iframe>
+          <iframe src="${url}"></iframe>
         </body>
         </html>
       `;
       win.document.write(html);
       win.document.close();
+    }
+
+    function openCustom() {
+      const url = document.getElementById('customlinkbox').value;
+      if (url) openCloak(url);
     }
   </script>
 </body>
