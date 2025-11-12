@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Poki | Hub</title>
+  <title>Mah Hub</title>
   <link rel="icon" href="schoology.ico" />
 
   <style>
@@ -78,37 +78,6 @@
 
     nav a:hover {
       color: var(--secondary);
-    }
-
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background: var(--card);
-      top: 35px;
-      border-radius: 10px;
-      overflow: hidden;
-      min-width: 150px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.3);
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 10px 15px;
-      color: white;
-      transition: 0.3s;
-    }
-
-    .dropdown-content a:hover {
-      background: var(--primary);
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-      animation: dropdownFade 0.3s ease;
     }
 
     main {
@@ -218,49 +187,37 @@
       from {opacity: 0; transform: translateY(20px);}
       to {opacity: 1; transform: translateY(0);}
     }
-
-    @keyframes dropdownFade {
-      from {opacity: 0; transform: translateY(-5px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Poki</h1>
+    <h1>Mah Hub</h1>
     <nav>
       <a href="#">Home</a>
-      <div class="dropdown">
-        <a href="#">Sites ▼</a>
-        <div class="dropdown-content">
-          <a href="https://schoology.com.de">Truffled Proxy</a>
-          <a href="https://bikuists-hub.vercel.app">Bikuist</a>
-          <a href="https://iomor3290k.w3spaces.com">Rammer</a>
-        </div>
-      </div>
       <a href="#" onclick="openCloak()">Cloak</a>
     </nav>
   </header>
 
   <main>
-    <h2>Welcome to Poki Hub</h2>
+    <h2>Welcome to Mah Hub</h2>
     <p>Explore hidden tools, proxies, and fun resources under a sleek interface — all cloaked for privacy. Use the search bar below to open custom links instantly.</p>
 
     <div class="search-container">
       <input type="text" id="customlinkbox" class="search-input" placeholder="Enter URL (e.g. https://example.com)">
-      <button class="search-btn" onclick="openCustom()">
-        🔍
-      </button>
+      <button class="search-btn" onclick="openCustom()">🔍</button>
     </div>
 
     <div class="link-grid">
+      <div class="link-card" onclick="window.open('https://schoology.com.de')">🧩 Truffled Proxy</div>
+      <div class="link-card" onclick="window.open('https://bikuists-hub.vercel.app')">💫 Bikuist</div>
+      <div class="link-card" onclick="window.open('https://iomor3290k.w3spaces.com')">⚙️ Rammer</div>
       <div class="link-card" onclick="window.open('https://coolmathgames.com')">🎮 CoolMath Games</div>
       <div class="link-card" onclick="window.open('https://safeshare.tv')">📺 SafeShare</div>
       <div class="link-card" onclick="window.open('https://securedweb.on-to.space')">🛡️ SecuredWeb</div>
     </div>
   </main>
 
-  <footer>Made with ❤️ by Poki Dev Team</footer>
+  <footer>Made with ❤️ by Mah Hub Team</footer>
 
   <script>
     function openCustom() {
@@ -270,23 +227,8 @@
 
     function openCloak() {
       const win = window.open('about:blank', '_blank');
-      const html = `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>Poki</title>
-          <style>
-            html, body {margin: 0; height: 100%; overflow: hidden; background: #0f172a;}
-            iframe {width: 100%; height: 100%; border: none;}
-          </style>
-        </head>
-        <body>
-          <iframe src="https://Wackymah.xyz"></iframe>
-        </body>
-        </html>`;
-      win.document.write(html);
+      const clone = document.documentElement.outerHTML;
+      win.document.write(clone);
       win.document.close();
     }
   </script>
