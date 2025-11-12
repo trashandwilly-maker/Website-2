@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Poki</title>
+  <title>EPIC WEBSITE</title>
   <link rel="icon" href="schoology.ico" />
 
   <style>
@@ -124,16 +124,17 @@
   </style>
 </head>
 <body>
-  <h1>Poki Website</h1>
+  <h1>EPIC WEBSITE</h1>
 
-  <p>Welcome! Use the button below to open Poki in a cloaked window.<br>
-  This site only includes external tools and links cloaked via about:blank.</p>
+  <p>Welcome! Use the button below to open a cloaked version of this website in a new about:blank tab.<br>
+  This site features external tools and links — all hidden under a clean design.</p>
 
-  <button onclick="openCloak()">Open Poki Cloak</button>
+  <button onclick="openCloak()">Open Cloaked Site</button>
 
   <div class="links">
     <a href="https://schoology.com.de">Truffled Proxy</a>
-    <a href="#" onclick="openPokiCloak()">Poki Proxy</a>
+    <a href="https://chatgpt.com">ChatGPT</a>
+    <a href="https://coolmathgames.com">CoolMathGames</a>
   </div>
 
   <div style="margin-top:2rem;">
@@ -155,7 +156,7 @@
       customlink.textContent = customlinkbox.value || "Custom Link";
     });
 
-    // General cloaker function
+    // Cloaker (opens about:blank window with same site)
     function openCloak() {
       const win = window.open('about:blank', '_blank');
       const html = `
@@ -164,7 +165,7 @@
         <head>
           <meta charset="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>Poki</title>
+          <title>EPIC WEBSITE</title>
           <link rel="icon" href="schoology.ico" />
           <style>
             html, body {
@@ -182,16 +183,12 @@
           </style>
         </head>
         <body>
-          <iframe src="https://poki.com"></iframe>
+          <iframe src="https://Wackymah.xyz"></iframe>
         </body>
         </html>
       `;
       win.document.write(html);
       win.document.close();
-    }
-
-    function openPokiCloak() {
-      openCloak(); // opens poki.com in cloaked iframe
     }
   </script>
 </body>
