@@ -14,50 +14,59 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
-    }
-    .loader {
+      flex-direction: column;
       color: #38bdf8;
-      font-size: 1.3rem;
       font-weight: 600;
-      animation: fade 1.5s infinite ease-in-out;
+      font-size: 1.3rem;
     }
-    @keyframes fade {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 1; }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      border: none;
+      background: #3b82f6;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #60a5fa;
     }
   </style>
 </head>
 <body>
-  <div class="loader">Launching your cloaked site...</div>
+  <div>Click below to launch your cloaked site:</div>
+  <button id="launchBtn">Launch</button>
 
   <script>
-    // Open about:blank window
-    const win = window.open('about:blank', '_blank');
+    document.getElementById('launchBtn').addEventListener('click', () => {
+      const win = window.open('about:blank', '_blank');
 
-    // Inject your cloaked HTML
-    const html = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Cloaked Site</title>
-        <style>
-          html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
-          iframe { width: 100%; height: 100%; border: none; }
-        </style>
-      </head>
-      <body>
-        <iframe src="https://Wackymah.xyz"></iframe>
-      </body>
-      </html>
-    `;
+      // Inject cloaked HTML
+      const html = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>Cloaked Site</title>
+          <style>
+            html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+            iframe { width: 100%; height: 100%; border: none; }
+          </style>
+        </head>
+        <body>
+          <iframe src="https://Wackymah.xyz"></iframe>
+        </body>
+        </html>
+      `;
 
-    win.document.write(html);
-    win.document.close();
+      win.document.write(html);
+      win.document.close();
 
-    // Hide loader on current page (optional)
-    document.querySelector(".loader").style.display = "none";
+      // Optional: hide current page content
+      document.body.innerHTML = '<div>Site launched! You can close this tab.</div>';
+    });
   </script>
 </body>
 </html>
